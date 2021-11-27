@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.shopping.promotionengine.models.Product;
+
 public final class ProductsUtil {
 
 	private ProductsUtil() {
@@ -17,5 +19,9 @@ public final class ProductsUtil {
 			productCountMap.put(item, (currentCount == null) ? 1 : currentCount + 1);
 		}
 		return productCountMap;
+	}
+
+	public static Product getProduct(List<Product> allProducts, String skuId) {
+		return allProducts.stream().filter(product -> product.getSkuId().equals(skuId)).findFirst().orElse(null);
 	}
 }

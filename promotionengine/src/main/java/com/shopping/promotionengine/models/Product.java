@@ -4,7 +4,7 @@ public class Product {
 
 	private String skuId;
 	private String name;
-	private Double unitPrice;
+	private double unitPrice;
 	
 	public String getSkuId() {
 		return skuId;
@@ -18,13 +18,13 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Double getUnitPrice() {
+	public double getUnitPrice() {
 		return unitPrice;
 	}
-	public void setUnitPrice(Double unitPrice) {
+	public void setUnitPrice(double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	public Product(String skuId, String name, Double unitPrice) {
+	public Product(String skuId, String name, double unitPrice) {
 		super();
 		this.skuId = skuId;
 		this.name = name;

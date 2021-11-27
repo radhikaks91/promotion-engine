@@ -14,6 +14,11 @@ public class CheckoutCart {
 	private UnitBasedPromotionRule unitBasedPromotionRule;
 	private ComboBasedPromotionRule comboBasedPromotionRule;
 	
+	public CheckoutCart() {
+		this.unitBasedPromotionRule = new UnitBasedPromotionRule();
+		this.comboBasedPromotionRule = new ComboBasedPromotionRule();
+	}
+	
 	public double priceCart(List<String> cartItems, List<Product> allProducts,
 			List<UnitBasedPromotion> unitBasedPromotions, List<ComboBasedPromotion> comboBasedPromotions) {
 		return unitBasedPromotionRule.computePrice(cartItems, allProducts, unitBasedPromotions)

@@ -21,7 +21,7 @@ public class UnitBasedPromotionRule extends PromotionRule {
 				int unitsEligibleForPromotion = count / promotion.getNumberOfUnits();
 				int unitsWithFixedPrice = count % promotion.getNumberOfUnits();
 				double currentPrice = totalPrice.get() + (unitsEligibleForPromotion * promotion.getOfferPrice())
-						+ (unitsWithFixedPrice * currentProduct.getUnitPrice());				
+						+ (unitsWithFixedPrice * currentProduct.getUnitPrice());
 				totalPrice.set(currentPrice);
 			}
 		});
@@ -29,8 +29,8 @@ public class UnitBasedPromotionRule extends PromotionRule {
 	}
 
 	private UnitBasedPromotion getPromotionDetail(List<?> promotions, String skuId) {
-		return (UnitBasedPromotion) promotions.stream().filter(promotion -> promotion.equals(skuId)).findFirst()
-				.orElse(null);
+		return promotions.stream().map(promotion -> (UnitBasedPromotion) promotion)
+				.filter(promotion -> promotion.getSkuId().equals(skuId)).findFirst().orElse(null);
 	}
 
 }

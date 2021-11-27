@@ -11,7 +11,7 @@ import com.shopping.promotionengine.utils.ProductsUtil;
 public class UnitBasedPromotionRule extends PromotionRule {
 
 	@Override
-	double computePrice(List<String> cartItems, List<Product> allProducts, List<?> promotions) {
+	public double computePrice(List<String> cartItems, List<Product> allProducts, List<?> promotions) {
 		Map<String, Integer> productCountMap = ProductsUtil.createProductToCountMap(cartItems);
 		AtomicReference<Double> totalPrice = new AtomicReference<>(0.0);
 		productCountMap.forEach((skuId, count) -> {
@@ -21,7 +21,7 @@ public class UnitBasedPromotionRule extends PromotionRule {
 				int unitsEligibleForPromotion = count / promotion.getNumberOfUnits();
 				int unitsWithFixedPrice = count % promotion.getNumberOfUnits();
 				double currentPrice = totalPrice.get() + (unitsEligibleForPromotion * promotion.getOfferPrice())
-						+ (unitsWithFixedPrice + currentProduct.getUnitPrice());				
+						+ (unitsWithFixedPrice * currentProduct.getUnitPrice());				
 				totalPrice.set(currentPrice);
 			}
 		});

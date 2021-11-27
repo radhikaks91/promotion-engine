@@ -12,7 +12,7 @@ import com.shopping.promotionengine.utils.ProductsUtil;
 public class ComboBasedPromotionRule extends PromotionRule {
 
 	@Override
-	double computePrice(List<String> cartItems, List<Product> allProducts, List<?> promotions) {		
+	public double computePrice(List<String> cartItems, List<Product> allProducts, List<?> promotions) {		
 		Map<String, Integer> productCountMap = ProductsUtil.createProductToCountMap(cartItems);
 		AtomicReference<Double> totalPrice = new AtomicReference<>(0.0);
 		promotions.forEach(promotion -> {

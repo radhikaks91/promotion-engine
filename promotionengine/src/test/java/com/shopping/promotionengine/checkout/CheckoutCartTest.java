@@ -33,7 +33,7 @@ public class CheckoutCartTest extends TestCase {
 	}
 	
 	public void testScenarioC() {
-		assertEquals(280.0, checkoutCart.priceCart(Arrays.asList("A","A","A","B","B","B","B","B","C","D"), allProducts, unitBasedPromotions, comboBasedPromotions));
+		assertEquals(280.0, checkoutCart.priceCart(Arrays.asList("A","A","C","D","A","B","B","B","B","B"), allProducts, unitBasedPromotions, comboBasedPromotions));
 	}
 	
 	private void buildUnitBasedPromotions() {
